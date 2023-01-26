@@ -1,0 +1,101 @@
+
+<html>
+    <head>
+        <style>
+ #increment, #decrement, #reset {
+    /* padding: 10px 15px; */
+    font-size: 19px;
+    /* background: #56ccf2; */
+    background: -webkit-linear-gradient(to right, #56ccf2, #2f80ed);
+    /* background: linear-gradient(to right, #56ccf2, #2f80ed); */
+    /* color: #f1f1f1; */
+    /* border: none; */
+     margin: 10px; 
+}
+
+
+#main{
+  margin : 0 auto;
+  text-align:center;
+  padding:5% 10%;
+}
+#displayCounter {
+    font-size: 100px;
+    font-family: impact;
+    width: 200px;
+    border: 2px solid;
+    height: 200px;
+    /* background: rgb(238, 211, 211); */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: auto;
+}
+.btn{
+    top: 1px;
+    position: absolute;
+    left: 45%;
+}
+        </style>
+    </head>
+    <body>
+         <div id="main">
+            <div className = "btn">
+                <button id="reset">Reset</button><br><br>
+            </div>
+            <div id="displayCounter"></div><br>
+            <button id="increment"> increment </button>
+            <button id="decrement"> decrement</button>
+            
+            
+         </div>
+
+         <script>
+            
+var productCounter={
+        count:0,									
+		incrementCounter:function(){
+      if(this.count<1000000000){
+          
+	      return this.count = this.count + 1;
+      }else{
+        alert("maximum limit reached, you can buy only 10 items");
+        return this.count;
+      }
+      
+	    },
+	    decrementCounter:function(){
+		  	if (this.count>-1000000000){
+		      return this.count = this.count - 1;
+		    } else {
+		      return this.count=0;
+		    }
+	    },
+	    resetCounter:function(){
+	      return this.count=0;
+	    }	
+
+};
+
+var displayCout = document.getElementById('displayCounter');
+displayCout.innerHTML=0;
+document.getElementById('increment').onclick=function(){
+displayCout.innerHTML=productCounter.incrementCounter();
+displayCout.style.color = "#00FF00"
+}
+document.getElementById('decrement').onclick=function(){
+displayCout.innerHTML = productCounter.decrementCounter();
+displayCout.style.color = "#FF0000"
+}
+document.getElementById('reset').onclick=function(){
+displayCout.innerHTML = productCounter.resetCounter();
+displayCout.style.color = "#000000"
+
+}
+
+         </script>
+    </body>
+    </html>
+    
